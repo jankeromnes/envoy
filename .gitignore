@@ -17,6 +17,8 @@
 !\.gitattributes
 !\.github
 !\.gitignore
+!\.gitpod.yml
+!\.gitpod.Dockerfile
 !\.python-version
 !\.style.yapf
 !\.yamllint

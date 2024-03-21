@@ -1,6 +1,9 @@
 image:
   file: .gitpod.Dockerfile
 
+tasks:
+  - init: mkdir -p /workspace/.engflow && echo -e "${ENGFLOW_KEY}" > /workspace/.engflow/engflow.key && echo -e "${ENGFLOW_CRT}" > /workspace/.engflow/engflow.crt
+
 vscode:
   extensions:
     - BazelBuild.vscode-bazel

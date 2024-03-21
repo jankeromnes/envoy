@@ -1,0 +1,19 @@
+# Inherit remote and remote-ci configs
+build:engflow --config=remote
+build:engflow --config=remote-ci
+
+# Build remotely on EngFlow
+build:engflow --remote_cache=grpcs://regolith.cluster.engflow.com
+build:engflow --remote_executor=grpcs://regolith.cluster.engflow.com
+build:engflow --bes_backend=grpcs://regolith.cluster.engflow.com
+build:engflow --bes_results_url=https://regolith.cluster.engflow.com/invocation/
+build:engflow --remote_default_exec_properties=container-image=docker://docker.io/envoyproxy/envoy-build-ubuntu:f94a38f62220a2b017878b790b6ea98a0f6c5f9c@sha256:2dd96b6f43c08ccabd5f4747fce5854f5f96af509b32e5cf6493f136e9833649
+build:engflow --jobs=500
+
+# Authenticate to the EngFlow cluster using mTLS certificate
+build:engflow --tls_client_certificate=/workspace/.engflow/engflow.crt
+build:engflow --tls_client_key=/workspace/.engflow/engflow.key
+
+# Allow cache to be backed up and restored by Gitpod
+build:engflow --repository_cache=/workspace/.cache/bazel-repo
+build:engflow --disk_cache=/workspace/.cache/bazel-disk
